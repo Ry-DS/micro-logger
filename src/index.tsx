@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './pages/App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Route} from 'react-router-dom'
-import InteractiveVideo from "./InteractiveVideo";
-
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
+import InteractiveVideo from "./pages/InteractiveVideo";
+import './scss/index.scss'
+import 'bootstrap/scss/bootstrap.scss'
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Route path='/file/:filePrefix' component={InteractiveVideo}/>
-            <Route exact path='/' component={App}/>
-            <Route path='/404'><h1>404 Not Found</h1></Route>
+            <Switch>
+                <Route exact path='/' component={App}/>
+                <Route path='/file/:filePrefix/:recordTime' component={InteractiveVideo}/>
+                <Route path='/404'><h1>404 Not Found</h1></Route>
+                <Redirect to='/404'/>
+            </Switch>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
