@@ -1,4 +1,4 @@
-import React, {createRef, useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Link, RouteChildrenProps} from "react-router-dom";
 import Sketch from "react-p5";
 import p5Types from 'p5';
@@ -54,7 +54,7 @@ function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: str
 
     const [csvFile, setCsvFile] = useState<CSVObject[]>([]);
     const [resultPosition, setResultPosition] = useState<CSVObject>();
-    const videoPlayer = createRef<ReactPlayer>();
+    const videoPlayer = useRef<ReactPlayer>();
 
 
     // load file
@@ -87,29 +87,26 @@ function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: str
     }, [file, history])
 
     // calculate position in video for meters to update
+    const htmlPlayer = videoPlayer?.current?.getInternalPlayer() as HTMLVideoElement;
     useEffect(() => {
-        const player = videoPlayer.current;
-        if (!player)
+        if (!htmlPlayer)
             return;
 
         const onVidPlay = () => {
             if (csvFile.length === 0)
                 return;
-            const time = player.getCurrentTime() * 1000 + recordTime;
+            const time = htmlPlayer.currentTime * 1000 + recordTime;
             const closest = binarySearch(csvFile, time);
             setResultPosition(closest);
 
         }
 
-        const htmlVideo = player.getInternalPlayer() as HTMLVideoElement | null;
-        if (htmlVideo)
-            htmlVideo.addEventListener('timeupdate', onVidPlay)
+        htmlPlayer.addEventListener('timeupdate', onVidPlay)
         return () => {
-            if (htmlVideo)
-                htmlVideo.removeEventListener("timeupdate", onVidPlay);
+            htmlPlayer.removeEventListener("timeupdate", onVidPlay);
         };
 
-    }, [csvFile, recordTime, videoPlayer]);
+    }, [csvFile, htmlPlayer, recordTime]);
     // update p5 model
     useEffect(() => {
         if (resultPosition)
@@ -129,7 +126,8 @@ function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: str
                     <Sketch setup={setup} draw={draw} style={{maxWidth: '100%'}}/>
                 </Col>
                 <Col md={6}>
-                    <ReactPlayer ref={videoPlayer} controls={true} url={`/videos/${file}.mp4`}
+                    <ReactPlayer ref={videoPlayer as any /* Bug with useRef typing*/} controls={true}
+                                 url={`/videos/${file}.mp4`}
                                  style={{maxWidth: '100%'}}/>
                 </Col>
             </Row>
