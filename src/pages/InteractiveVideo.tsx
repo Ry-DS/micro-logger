@@ -100,10 +100,11 @@ function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: str
             setResultPosition(closest);
 
         }
-
-        htmlPlayer.addEventListener('timeupdate', onVidPlay)
+        const interval = setInterval(onVidPlay, 100);
+        // htmlPlayer.addEventListener('timeupdate', onVidPlay)
         return () => {
-            htmlPlayer.removeEventListener("timeupdate", onVidPlay);
+            clearInterval(interval);
+            // htmlPlayer.removeEventListener("timeupdate", onVidPlay);
         };
 
     }, [csvFile, htmlPlayer, recordTime]);
@@ -160,14 +161,19 @@ function binarySearch(arr: CSVObject[], target: number, start: number = 0, end: 
     // Find the middle index
     let mid = Math.floor((start + end) / 2);
 
-    // Compare mid with given key x
-    if (arr[mid].timestamp === target || start === end) return arr[mid];
+    /*// Compare mid with given key x
+    if (arr[mid].timestamp === target || start === end) {
+        console.log('mid:' + mid);
+        return arr[mid];
+    }*/
 
     // if difference is just one, get the closest between them two
-    if (Math.abs(start - end) === 1) {
-        if (Math.abs(arr[start].timestamp - target) < Math.abs(arr[end].timestamp - target))
+    if (Math.abs(start - end) <= 1) {
+        if (Math.abs(arr[start].timestamp - target) < Math.abs(arr[end].timestamp - target)) {
             return arr[start];
-        else return arr[end];
+        } else {
+            return arr[end];
+        }
     }
 
     // If element at mid is greater than x,
