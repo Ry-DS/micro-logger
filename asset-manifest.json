@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/micro-logger/static/css/main.591faf1a.chunk.css",
-    "main.js": "/micro-logger/static/js/main.a58ad716.chunk.js",
-    "main.js.map": "/micro-logger/static/js/main.a58ad716.chunk.js.map",
+    "main.js": "/micro-logger/static/js/main.9bd90290.chunk.js",
+    "main.js.map": "/micro-logger/static/js/main.9bd90290.chunk.js.map",
     "runtime-main.js": "/micro-logger/static/js/runtime-main.ddd36211.js",
     "runtime-main.js.map": "/micro-logger/static/js/runtime-main.ddd36211.js.map",
     "static/css/2.7b1a92e0.chunk.css": "/micro-logger/static/css/2.7b1a92e0.chunk.css",
     "static/js/2.a9d72c6e.chunk.js": "/micro-logger/static/js/2.a9d72c6e.chunk.js",
     "static/js/2.a9d72c6e.chunk.js.map": "/micro-logger/static/js/2.a9d72c6e.chunk.js.map",
     "index.html": "/micro-logger/index.html",
-    "precache-manifest.f532847535d8a7c1cda3c2a19dbb61ef.js": "/micro-logger/precache-manifest.f532847535d8a7c1cda3c2a19dbb61ef.js",
+    "precache-manifest.1a0c0c461d31be4c6d9e585bdc04815d.js": "/micro-logger/precache-manifest.1a0c0c461d31be4c6d9e585bdc04815d.js",
     "service-worker.js": "/micro-logger/service-worker.js",
     "static/css/2.7b1a92e0.chunk.css.map": "/micro-logger/static/css/2.7b1a92e0.chunk.css.map",
     "static/css/main.591faf1a.chunk.css.map": "/micro-logger/static/css/main.591faf1a.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.7b1a92e0.chunk.css",
     "static/js/2.a9d72c6e.chunk.js",
     "static/css/main.591faf1a.chunk.css",
-    "static/js/main.a58ad716.chunk.js"
+    "static/js/main.9bd90290.chunk.js"
   ]
 }
