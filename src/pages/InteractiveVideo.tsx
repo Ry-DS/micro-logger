@@ -48,13 +48,15 @@ type Angles = {
 
 }
 
-function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: string, recordTime: string }>) {
+function InteractiveVideo({match, history, location}: RouteChildrenProps<{ filePrefix: string, recordTime: string }>) {
     const file = match?.params?.filePrefix;
+    const search = new URLSearchParams(location.search);
     const recordTime = parseInt(match?.params?.recordTime || '');
 
     const [csvFile, setCsvFile] = useState<CSVObject[]>([]);
     const [resultPosition, setResultPosition] = useState<CSVObject>();
     const videoPlayer = useRef<ReactPlayer>();
+    const videoUrl = search.get('videoUrl') || `/videos/${file}.mp4`;
 
 
     // load file
@@ -128,7 +130,7 @@ function InteractiveVideo({match, history}: RouteChildrenProps<{ filePrefix: str
                 </Col>
                 <Col md={6}>
                     <ReactPlayer ref={videoPlayer as any /* Bug with useRef typing*/} controls={true}
-                                 url={`/videos/${file}.mp4`}
+                                 url={videoUrl}
                                  style={{maxWidth: '100%'}}/>
                 </Col>
             </Row>
@@ -161,11 +163,6 @@ function binarySearch(arr: CSVObject[], target: number, start: number = 0, end: 
     // Find the middle index
     let mid = Math.floor((start + end) / 2);
 
-    /*// Compare mid with given key x
-    if (arr[mid].timestamp === target || start === end) {
-        console.log('mid:' + mid);
-        return arr[mid];
-    }*/
 
     // if difference is just one, get the closest between them two
     if (Math.abs(start - end) <= 1) {

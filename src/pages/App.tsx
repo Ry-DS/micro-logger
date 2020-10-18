@@ -15,10 +15,15 @@ function App() {
             </p>
             <b>Click an item to get started</b>
             <ListGroup>
-                <VideoItem fileName='welcome' startTime={1602754611038}>Welcome to Micro:Logger!</VideoItem>
-                <VideoItem fileName='sss' startTime={1602754611038}>Exploring the Visual Logger</VideoItem>
-                <VideoItem fileName='sss' startTime={1602754611038}>How does it work?</VideoItem>
-                <VideoItem fileName='sss' startTime={1602754611038}>ACK and Timeout Error handling</VideoItem>
+                <VideoItem fileName='welcome' startTime={1602823990542}>Welcome to Micro:Logger!</VideoItem>
+                <VideoItem fileName='sensors' startTime={1602918840792}>Exploring the sensors</VideoItem>
+                <VideoItem fileName='errors' startTime={1602920032281}>How does the ACK and Timeout features
+                    work?</VideoItem>
+                <VideoItem fileName='errors_real' startTime={1602920032281}>Error prevention in a real
+                    scenario</VideoItem>
+                <VideoItem fileName='micro_code' startTime={1602920032281}>A look into the Micro:bit's code</VideoItem>
+                <VideoItem fileName='web_code' startTime={1602920032281}>A look into the Website's code</VideoItem>
+                <VideoItem fileName='test' startTime={1602754611038}>Test</VideoItem>
             </ListGroup>
             <h3 className='mt-5 text-center'>Control the Micro:Bit connected to this PC</h3>
             <Row>
@@ -30,9 +35,10 @@ function App() {
     );
 }
 
-function VideoItem({fileName, children, startTime}: PropsWithChildren<{ startTime: number, fileName: string }>) {
+function VideoItem({fileName, children, startTime, videoUrl}: PropsWithChildren<{ startTime: number, fileName: string, videoUrl?: string }>) {
 
-    return <Link to={`/file/${fileName}/${startTime}`}><ListGroupItem action>{children}</ListGroupItem></Link>
+    return <Link to={`/file/${fileName}/${startTime}${videoUrl ? `?videoUrl=${videoUrl}` : ''}`}><ListGroupItem
+        action>{children}</ListGroupItem></Link>
 }
 
 export default App;
