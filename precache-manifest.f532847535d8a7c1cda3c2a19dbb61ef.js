@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "079b7dd59327c09cd8617b0f36b48a57",
+    "revision": "7bbf036993fcd72d0aaedd2b511115a4",
     "url": "/micro-logger/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/micro-logger/static/css/2.7b1a92e0.chunk.css"
   },
   {
-    "revision": "a850780e0a415f0f049f",
+    "revision": "c0a2512af83aacf3cafc",
     "url": "/micro-logger/static/css/main.591faf1a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/micro-logger/static/js/2.a9d72c6e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a850780e0a415f0f049f",
-    "url": "/micro-logger/static/js/main.3f669987.chunk.js"
+    "revision": "c0a2512af83aacf3cafc",
+    "url": "/micro-logger/static/js/main.a58ad716.chunk.js"
   },
   {
     "revision": "7ab02920ebd74bd856df",
