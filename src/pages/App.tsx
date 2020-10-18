@@ -10,25 +10,33 @@ function App() {
         <Container className='vh-100 d-flex justify-content-center align-items-center flex-column'>
             <h1>Micro:Logger</h1>
             <p className='text-center'>
-                Why?<br/>
-                Because if I don't I fail this assignment
+                An powerful, interactive logger for your Micro:Bit.
             </p>
             <b>Click an item to get started</b>
             <ListGroup>
-                <VideoItem fileName='welcome' startTime={1602823990542}>Welcome to Micro:Logger!</VideoItem>
-                <VideoItem fileName='sensors' startTime={1602918840792}>Exploring the sensors</VideoItem>
-                <VideoItem fileName='errors' startTime={1602920032281}>How does the ACK and Timeout features
+                <VideoItem fileName='welcome' startTime={1603002903403} videoUrl={'https://youtu.be/tFzeVXQATA0'}>Welcome
+                    to Micro:Logger!</VideoItem>
+                <VideoItem fileName='sensors' startTime={1602918840792} videoUrl='https://youtu.be/hwPAFkCkD8w'>Exploring
+                    the sensors</VideoItem>
+                <VideoItem fileName='errors' startTime={1602920032281} videoUrl='https://youtu.be/HIJRud5PTjo'>How does
+                    the ACK and Timeout features
                     work?</VideoItem>
-                <VideoItem fileName='errors_real' startTime={1602920032281}>Error prevention in a real
+                <VideoItem fileName='errors_real' startTime={1602920032281} videoUrl='https://youtu.be/EKtGYOADuSo'>Error
+                    prevention in a real
                     scenario</VideoItem>
-                <VideoItem fileName='micro_code' startTime={1602920032281}>A look into the Micro:bit's code</VideoItem>
-                <VideoItem fileName='web_code' startTime={1602920032281}>A look into the Website's code</VideoItem>
+                <VideoItem fileName='micro_code' startTime={1602920032281} videoUrl='https://youtu.be/dEbN2fJS_bU'>A
+                    look into the Micro:bit's code</VideoItem>
+                <VideoItem fileName='pc_code' startTime={1602997561068} videoUrl='https://youtu.be/eIw1nj0tlAM'>A look
+                    into the PC's code</VideoItem>
+                <VideoItem fileName='web_code' startTime={1602920032281} videoUrl='https://youtu.be/bp_MS6-q8Vs'>A look
+                    into the Website's code</VideoItem>
                 <VideoItem fileName='test' startTime={1602754611038}>Test</VideoItem>
             </ListGroup>
             <h3 className='mt-5 text-center'>Control the Micro:Bit connected to this PC</h3>
             <Row>
-                <Col><Button variant='danger'>Restart</Button></Col>
-                <Col><Button variant='warning'>Reset</Button></Col>
+                <Col><a href='/restart'><Button variant='dark'>Restart</Button></a></Col>
+                <Col><a href='/reset'><Button variant='warning'>Reset</Button></a></Col>
+                <Col><a href='/stop'><Button variant='danger'>Stop</Button></a></Col>
             </Row>
 
         </Container>

@@ -89,7 +89,7 @@ function InteractiveVideo({match, history, location}: RouteChildrenProps<{ fileP
     }, [file, history])
 
     // calculate position in video for meters to update
-    const htmlPlayer = videoPlayer?.current?.getInternalPlayer() as HTMLVideoElement;
+    const htmlPlayer = videoPlayer?.current;
     useEffect(() => {
         if (!htmlPlayer)
             return;
@@ -97,7 +97,7 @@ function InteractiveVideo({match, history, location}: RouteChildrenProps<{ fileP
         const onVidPlay = () => {
             if (csvFile.length === 0)
                 return;
-            const time = htmlPlayer.currentTime * 1000 + recordTime;
+            const time = htmlPlayer.getCurrentTime() * 1000 + recordTime;
             const closest = binarySearch(csvFile, time);
             setResultPosition(closest);
 
