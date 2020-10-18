@@ -123,7 +123,9 @@ function InteractiveVideo({match, history, location}: RouteChildrenProps<{ fileP
     return (
         <Container style={{overflowX: 'hidden'}}>
 
-            <Row className='m-5 ml-1'><Link to='/'><Button>Go Back Home</Button></Link></Row>
+            <Row className='m-5 ml-1'><Link to='/'><Button>Go Back Home</Button></Link>
+                <a href={`/videos/${file}.csv`}><Button variant='success' className='ml-3'>Download CSV</Button></a>
+            </Row>
             <Row>
                 <Col md={6}>
                     <Sketch setup={setup} draw={draw} style={{maxWidth: '100%'}}/>
