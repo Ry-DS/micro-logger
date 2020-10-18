@@ -56,12 +56,12 @@ function InteractiveVideo({match, history, location}: RouteChildrenProps<{ fileP
     const [csvFile, setCsvFile] = useState<CSVObject[]>([]);
     const [resultPosition, setResultPosition] = useState<CSVObject>();
     const videoPlayer = useRef<ReactPlayer>();
-    const videoUrl = search.get('videoUrl') || `/videos/${file}.mp4`;
+    const videoUrl = search.get('videoUrl') || `micro-logger/videos/${file}.mp4`;
 
 
     // load file
     useEffect(() => {
-        fetch(`/videos/${file}.csv`).then((res) => res.text())
+        fetch(`micro-logger/videos/${file}.csv`).then((res) => res.text())
             .then(res => {
                 if (res.includes('html'))
                     throw new Error("Not found")
