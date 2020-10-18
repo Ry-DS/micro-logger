@@ -30,7 +30,7 @@ function App() {
                     into the PC's code</VideoItem>
                 <VideoItem fileName='web_code' startTime={1602920032281} videoUrl='https://youtu.be/bp_MS6-q8Vs'>A look
                     into the Website's code</VideoItem>
-                <VideoItem fileName='test' startTime={1602754611038}>Test</VideoItem>
+
             </ListGroup>
             <h3 className='mt-5 text-center'>Control the Micro:Bit connected to this PC</h3>
             <Row>
