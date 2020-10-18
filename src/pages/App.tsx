@@ -10,7 +10,7 @@ function App() {
         <Container className='vh-100 d-flex justify-content-center align-items-center flex-column'>
             <h1>Micro:Logger</h1>
             <p className='text-center'>
-                An powerful, interactive logger for your Micro:Bit.
+                A powerful, interactive logger for your Micro:Bit.
             </p>
             <b>Click an item to get started</b>
             <ListGroup>
