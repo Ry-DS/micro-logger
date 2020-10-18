@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/micro-logger/precache-manifest.0a4f1000d22f60463b1f4bb4637edd4a.js"
+  "/micro-logger/precache-manifest.8c0d8169028106003db7b467e1ea1e6a.js"
 );
 
 self.addEventListener('message', (event) => {
